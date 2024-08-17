@@ -2,7 +2,7 @@
 You can try it out here:
 https://onlinegdb.com/lJG5Ig-8j
 
-Parses a propositional expression and generates a truth table of all possible input combinations and outputs. I made this originally to help me in my discrete structures course in college, however I only completed it after the course was done. 
+This program parses a propositional expression and generates a truth table of all possible input combinations and outputs. I made this originally to help me in my discrete structures course in college, however I only completed it after the course was done. 
 
 It works by first performing a lexical analysis (lexing) on a raw user entered string. What that basically means is it breaks up the entered string into meaningful blocks of data that the program will be able to understand in a later step. These blocks of data - called "tokens" - store the raw characters that were identified during the lexing process, a token type (PROPOSITION, TRUTH_VALUE, CONJUNCTION, etc.), and a precedence level (because we will likely be dealing with logical operators, which have to be evaluated in a certain order). 
 
