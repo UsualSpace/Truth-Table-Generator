@@ -11,15 +11,21 @@ In my case, depending on how many propositional variables are present, I need to
 
 Some example propositional expressions you can try entering:
 p ^ q
+
 ~(p ^ q)
+
 p -> q
+
 (p -> q) ^ ~q -> ~p
+
 p ^ T
+
 (m ^ k ^ o ^ F) v i
 
 I also added support for boolean algebra:
 
 (1 * 0) + 1
+
 ~0 + ~(1 * 1 * 0)
 
 
