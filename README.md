@@ -13,6 +13,7 @@ For any given post-fix expression, to evaluate it, you first step through the ex
 In my case, depending on how many propositional variables are present, I need to run the evaluation step multiple times, each time with a different set of values, in order to generate all the possible outcomes of a given propositional expression. I've added comments explaining a few things, I hope to add more features and possibly refine the code.
 
 Currently I support these basic operations:
+
 NEGATION (logical NOT)
 CONJUNCTION (logical AND)
 DISJUNCTION (logical OR)
