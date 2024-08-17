@@ -75,7 +75,7 @@ class Token {
             }
         }
 
-        //Will not do anything if the token does not represent propositional variable.
+        // Will not do anything if the token does not represent propositional variable.
         void setValue(bool value) {
             if(_type == PROPOSITION)
                 _value = value;
@@ -87,7 +87,7 @@ class Token {
         std::string _lexeme;
 };
 
-//inspired by https://craftinginterpreters.com/scanning.html
+// inspired by https://craftinginterpreters.com/scanning.html
 class Lexer {
     public:
         Lexer(std::string source) {
@@ -113,12 +113,12 @@ class Lexer {
 
         void scanToken() {
             switch(_source[_current_position]) {
-                //=========================================================
-                //Ignore Whitespace
+                // =========================================================
+                // Ignore Whitespace
                 case ' ':
                     break;
-                //=========================================================
-                //Truth values
+                // =========================================================
+                // Truth values
                 case '0':
                 case 'F':
                     addToken(Token::Type::TRUTH_VALUE, false);
@@ -127,16 +127,16 @@ class Lexer {
                 case 'T':
                     addToken(Token::Type::TRUTH_VALUE, true);
                     break;
-                //=========================================================
-                //Parentheses
+                // =========================================================
+                // Parentheses
                 case '(':
                     addToken(Token::Type::LPAREN, Token::Precedence::NA);
                     break;
                 case ')':
                     addToken(Token::Type::RPAREN, Token::Precedence::NA);
                     break;
-                //=========================================================
-                //Single-char operators
+                // =========================================================
+                // Single-char operators
                 case '^':
                 case '*':
                     addToken(Token::Type::CONJUNCTION, Token::Precedence::L2);
@@ -149,21 +149,21 @@ class Lexer {
                 case '~':
                     addToken(Token::Type::NEGATION, Token::Precedence::L1);
                     break;
-                //=========================================================
-                //Multi-char operators
+                // =========================================================
+                // Multi-char operators
                 case '-':
                     if(matchNext('>')) addToken(Token::Type::IMPLICATION, Token::Precedence::L4);
                     break;
                 case '<':
                     if(matchNext('-') && matchNext('>')) addToken(Token::Type::BICONDITIONAL, Token::Precedence::L5);
                     break;
-                //=========================================================
-                //Propositional Variables
+                // =========================================================
+                // Propositional Variables
                 default:
                     addToken(Token::Type::PROPOSITION);
                     _proposition_tokens.insert({getCurrentLexeme(), Token(Token::Type::PROPOSITION, Token::Precedence::NA, false, getCurrentLexeme())});
                     break;
-                //=========================================================
+                // =========================================================
             }
             ++_current_position;
         }
@@ -211,7 +211,7 @@ class Lexer {
         int _current_position{};
 };
 
-//I wish this was more elegant. Maybe regular expressions could work here?
+// I wish this was more elegant. Maybe regular expressions could work here?
 bool validateTokenString(const std::vector<Token>& tokens) {
     bool flag = true;
     for(int i{}; i < tokens.size(); ++i) {
@@ -250,7 +250,7 @@ bool validateTokenString(const std::vector<Token>& tokens) {
     return flag;
 }
 
-//Shunting yard algorithm is used here.
+// Shunting yard algorithm is used here.
 std::vector<Token> toPostFix(const std::vector<Token>& tokens) {
     std::stack<Token> operators;
     std::vector<Token> output;
