@@ -1,6 +1,6 @@
 # Truth-Table-Generator
 You can try it out here:
-https://onlinegdb.com/lJG5Ig-8j
+https://onlinegdb.com/dlfnWI5MZ
 
 This program parses a propositional expression and generates a truth table of all possible input combinations and outputs. I made this originally to help me in my discrete structures course in college, though only finished it after the course had ended.
 
