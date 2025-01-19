@@ -1,6 +1,6 @@
 # Truth-Table-Generator
 You can try it out here:
-https://onlinegdb.com/dlfnWI5MZ
+https://onlinegdb.com/M1JTamlNR
 
 This program parses a propositional expression and generates a truth table of all possible input combinations and outputs. I made this originally to help me in my discrete structures course in college, though only finished it after the course had ended.
 
@@ -39,6 +39,16 @@ I also added support for boolean algebra:
 (1 * 0) + 1
 
 ~0 + ~(1 * 1 * 0)
+
+UPDATE 1/18/2025: 
+- I revamped the code, removing the lexer class and shifting its responsiblities into a single function. 
+- Invalid expressions are more accurately handled as far as I can tell, by throwing exceptions when checking the evaluation stack to see if it is a size other than 1, and also by checking some things during the post fix conversion, all visible in 
+  truth_table_utility.cpp. 
+- You can now chain multiple expressions via the '|' operator. For example: "p ^ q | p v q". 
+- I still am facing some issues with formatting, and I intend to fix that at a later date. 
+- I fixed the issue of variables being sorted alphabetically in the truth table output when showing the intialization values of said variables per row. This was caused due to using std::map to assist in discovering variables in a given expression, which sorts keys upon 
+  input. To fix this, I implemented a new data structure that allows key value mapping while also maintaining the order of insertion, via an std::list and std::unordered_map combination. The result is that variables are displayed in the order they appeared/were 
+  discovered in the expression from left to right. 
 
 
      
