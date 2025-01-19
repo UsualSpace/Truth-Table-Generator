@@ -190,10 +190,13 @@ vector<Token> ToPostFix(const vector<Token>& the_tokens) {
         } else if(token.type == TokenType::LPAREN) {
             operators.push(token);
         } else if(token.type == TokenType::RPAREN) {
-            while(operators.top().type != TokenType::LPAREN) {
+            while(!operators.empty() && operators.top().type != TokenType::LPAREN) {
                 output.push_back(operators.top());
                 operators.pop();
             }
+            //If a left parentheses wasn't found while popping, something
+            //went wrong.
+            if(operators.empty()) throw std::invalid_argument("Invalid expression");
             operators.pop();
         } else {
             output.push_back(token);
@@ -201,6 +204,8 @@ vector<Token> ToPostFix(const vector<Token>& the_tokens) {
     }
     
     while(!operators.empty()) {
+        //If a left parentheses is encountered, something went wrong.
+        if(operators.top().type == TokenType::LPAREN) throw std::invalid_argument("Invalid expression");
         output.push_back(operators.top());
         operators.pop();
     }
