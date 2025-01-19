@@ -14,31 +14,25 @@ In my case, depending on how many propositional variables are present, I need to
 
 Currently I support these basic operations:
 
-NEGATION (logical NOT), 
-CONJUNCTION (logical AND), 
-DISJUNCTION (logical OR), 
-IMPLICATION (<=), 
-BICONDITIONAL (==)
+- NEGATION (logical NOT), 
+- CONJUNCTION (logical AND), 
+- DISJUNCTION (logical OR), 
+- IMPLICATION (<=), 
+- BICONDITIONAL (==)
 
 Some example propositional expressions you can try entering:
 
-p ^ q
-
-~(p ^ q)
-
-p -> q
-
-(p -> q) ^ ~q -> ~p
-
-p ^ T
-
-(m ^ k ^ o ^ F) v i
+- p ^ q
+- ~(p ^ q)
+- p -> q
+- (p -> q) ^ ~q -> ~p
+- p ^ T
+- (m ^ k ^ o ^ F) v i
 
 I also added support for boolean algebra:
 
-(1 * 0) + 1
-
-~0 + ~(1 * 1 * 0)
+- (1 * 0) + 1
+- ~0 + ~(1 * 1 * 0)
 
 UPDATE 1/18/2025: 
 - I revamped the code, removing the lexer class and shifting its responsiblities into a single function. 
