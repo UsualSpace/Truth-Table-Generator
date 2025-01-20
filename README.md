@@ -14,11 +14,11 @@ In my case, depending on how many propositional variables are present, I need to
 
 Currently I support these basic operations:
 
-- NEGATION (logical NOT), 
-- CONJUNCTION (logical AND), 
-- DISJUNCTION (logical OR), 
-- IMPLICATION (<=), 
-- BICONDITIONAL (==)
+- NEGATION (logical NOT), typed with: ~, ! 
+- CONJUNCTION (logical AND), typed with: ^, *
+- DISJUNCTION (logical OR), typed with: v, +
+- IMPLICATION (<=), typed with: ->
+- BICONDITIONAL (==), typed with: <->, <=>
 
 Some example propositional expressions you can try entering:
 
