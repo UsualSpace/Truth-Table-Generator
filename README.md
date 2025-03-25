@@ -1,7 +1,8 @@
 # Truth-Table-Generator
+## Working Example
 You can try it out here:
 https://onlinegdb.com/Iq3y6hURX
-
+## Description
 This program parses a propositional expression and generates a truth table of all possible input combinations and outputs. I made this originally to help me in my discrete structures course in college, though only finished it after the course had ended.
 
 It works by first performing a lexical analysis (lexing) on a raw user entered string. What that basically means is it breaks up the entered string into meaningful blocks of data that the program will be able to understand in a later step. These blocks of data - called "tokens" - store the raw characters that were identified during the lexing process, and a token type (VARIABLE, TRUE, FALSE, CONJUNCTION, etc.).
@@ -29,12 +30,12 @@ Some example propositional expressions you can try entering:
 - p ^ T
 - (m ^ k ^ o ^ F) v i
 
-I also added support for boolean algebra:
+I also have support for boolean algebra:
 
 - (1 * 0) + 1
 - ~0 + ~(1 * 1 * 0)
-
-UPDATE 1/18/2025: 
+## Updates
+### UPDATE 1/18/2025: 
 - I revamped the code, removing the lexer class and shifting its responsiblities into a single function. 
 - Invalid expressions are more accurately handled as far as I can tell, by throwing exceptions when checking the evaluation stack to see if it is a size other than 1, and also by checking some things during the post fix conversion, all visible in 
   truth_table_utility.cpp. 
